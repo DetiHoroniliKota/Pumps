@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="WebPumpMVC.Models.Pump" Collapsed="true">
+    <Position X="2.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAQAIAEAAAAAAAAAAAAAAAAAAAAAAAEAgAgA=</HashCode>
+      <FileName>Pump.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebPumpMVC.Models.Equipment">
+    <Position X="4.25" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAiCEAIBAQQAAAAAFhAAAACAAgAAMAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Equipment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebPumpMVC.Models.Automation" Collapsed="true">
+    <Position X="2.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAQAIAEAAAAAAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Automation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebPumpMVC.Models.Clamp" Collapsed="true">
+    <Position X="2.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAQAIAEAAAAAAAAAAAAAAAAAAAAABAAAAAgA=</HashCode>
+      <FileName>Clamps.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebPumpMVC.Models.HydraulicAccumulator" Collapsed="true">
+    <Position X="6" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAQAIAEAAAAAAAAAAAAAAAAAAAAIAAAAAAgA=</HashCode>
+      <FileName>HydraulicAccumulator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebPumpMVC.Models.Pipe" Collapsed="true">
+    <Position X="6" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAQAAAEAAAAAAAAAAAAAAAAAAAAABAAAAAgA=</HashCode>
+      <FileName>Pipe.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebPumpMVC.Models.Rope" Collapsed="true">
+    <Position X="6" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAQAAAEAAAAAAAAAAAAAAAAAAAAABAAAAAgA=</HashCode>
+      <FileName>Rope.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebPumpMVC.Models.UnderwaterСable" Collapsed="true">
+    <Position X="6" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAQAAAEAAAAAAAAAAAAAAAAAAAAAAAIAAAgA=</HashCode>
+      <FileName>UnderwaterСable.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebPumpMVC.Models.Cap" Collapsed="true">
+    <Position X="2.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAQAIAEAAAAAAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Сap.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -3,7 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pumps", "Pumps\Pumps.csproj", "{A1624A1A-297F-46B3-9200-51927A49F0E3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pumps", "Pumps\Pumps.csproj", "{A1624A1A-297F-46B3-9200-51927A49F0E3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CC184D6E-E1F6-4AC9-9EDF-2DADC6455D5C}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Diagram", "Diagram\Diagram.csproj", "{BF8877DE-BCDB-41A7-AF78-5CC31823454F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +22,10 @@ Global
 		{A1624A1A-297F-46B3-9200-51927A49F0E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A1624A1A-297F-46B3-9200-51927A49F0E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A1624A1A-297F-46B3-9200-51927A49F0E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF8877DE-BCDB-41A7-AF78-5CC31823454F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF8877DE-BCDB-41A7-AF78-5CC31823454F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF8877DE-BCDB-41A7-AF78-5CC31823454F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF8877DE-BCDB-41A7-AF78-5CC31823454F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
