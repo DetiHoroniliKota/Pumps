@@ -1,5 +1,5 @@
-﻿namespace WebPumpMVC.Models
-{
+﻿namespace Pump.Models
+{ 
     public class Clamp
     {
         public int Id { get; set; }

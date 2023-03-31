@@ -1,9 +1,11 @@
-﻿namespace WebPumpMVC.Models
+﻿using System.Collections.Generic;
+
+namespace WebPumpMVC.Models
 {
     public class UnderwaterСable
     {
         public int Id { get; set; }
-        public string? Title { get; set; }
+        public string Title { get; set; }
         public double Section { get; set; }
         public decimal Price { get; set; }
 

@@ -1,5 +1,5 @@
-﻿namespace WebPumpMVC.Models
-{
+﻿namespace Pump.Models
+{ 
     public class Equipment
     {
         public int Id { get; set; }
@@ -11,6 +11,7 @@
         public int CapId { get; set; }
         public int UnderwaterСableId { get; set; }
         public int AutomationId { get; set; }
+        public decimal Total => Pump.Price + Rope.Price + HydraulicAccumulator.Price + Clamp.Price + UnderwaterСable.Price + Automation.Price;
 
         public Automation Automation { get; set; }
         public UnderwaterСable UnderwaterСable { get; set; }

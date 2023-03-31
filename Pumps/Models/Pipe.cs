@@ -1,4 +1,4 @@
-﻿namespace WebPumpMVC.Models
+﻿namespace Pump.Models
 {
     public class Pipe
     {

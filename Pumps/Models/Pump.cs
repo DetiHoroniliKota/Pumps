@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace WebPumpMVC.Models
+namespace Pump.Models
 {
     public class Pump
     {
@@ -25,6 +25,7 @@ namespace WebPumpMVC.Models
         [Column(TypeName = "decimal(18, 2)")]
         public decimal Price { get; set; }
         public string? Typ { get; set; }
+        public string? Picture { get; set; }
 
         public ICollection<Equipment>? Equipments { get; set; }
     }

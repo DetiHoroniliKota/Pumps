@@ -12,6 +12,16 @@ namespace Pumps.Data
             : base(options, operationalStoreOptions)
         {
 
+
         }
+        public DbSet<Pump.Models.Pump> Pump { get; set; } = default!;
+        public DbSet<Pump.Models.Rope> Rope { get; set; } = default!;
+        public DbSet<Pump.Models.HydraulicAccumulator> HydraulicAccumulator { get; set; } = default!;
+        public DbSet<Pump.Models.Clamp> Clamp { get; set; } = default!;
+        public DbSet<Pump.Models.Pipe> Pipe { get; set; } = default!;
+        public DbSet<Pump.Models.Cap> Cap { get; set; } = default!;
+        public DbSet<Pump.Models.UnderwaterСable> UnderwaterСable { get; set; } = default!;
+        public DbSet<Pump.Models.Automation> Automation { get; set; } = default!;
+        public DbSet<Pump.Models.Equipment> Equipment { get; set; } = default!;
     }
 }
