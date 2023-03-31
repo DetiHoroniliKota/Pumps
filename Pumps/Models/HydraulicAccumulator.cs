@@ -1,7 +1,9 @@
-﻿namespace Pump.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+namespace Pump.Models
 {
     public class HydraulicAccumulator
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }
         public string? Title { get; set; }
         public int Volume { get; set; }

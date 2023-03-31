@@ -1,7 +1,10 @@
-﻿namespace Pump.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Pump.Models
 { 
     public class Equipment
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }
         public int PumpsId { get; set; }
         public int RopeId { get; set; }
