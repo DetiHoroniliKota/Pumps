@@ -1,5 +1,6 @@
 ﻿using Pumps.Interface;
 using Pumps.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace Pumps.Repository
 {
@@ -19,19 +20,26 @@ namespace Pumps.Repository
 
         }
 
-        public Task DelitedAsync(Pump.Models.Pump pump)
+
+        public async Task<List<Pump.Models.Pump>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            return await _context.Pump
+                .OrderByDescending(p => p.Title)
+                .ToListAsync();
         }
 
-        public Task<Pump.Models.Pump> GetAllAsync()
+        public async Task UpdateAsync(Pump.Models.Pump pump)
         {
-            throw new NotImplementedException();
+            _context.Pump.Update(pump);
+            await _context.SaveChangesAsync();
         }
 
-        public Task UpdateAsync(Pump.Models.Pump pump)
+        public async Task DelitedAsync(Pump.Models.Pump pump)
         {
-            throw new NotImplementedException();
+            _context.Remove(pump);
+            await _context.SaveChangesAsync();
         }
+
+       
     }
 }

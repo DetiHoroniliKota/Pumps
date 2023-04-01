@@ -7,7 +7,7 @@ namespace Pumps.Interface
 
         Task CrearAsync(Pump.Models.Pump pump);
 
-        Task<Pump.Models.Pump> GetAllAsync();
+        Task<List<Pump.Models.Pump>> GetAllAsync();
 
         Task UpdateAsync(Pump.Models.Pump pump);
 
