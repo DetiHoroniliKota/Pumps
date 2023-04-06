@@ -28,6 +28,12 @@ namespace Pumps.Repository
                 .ToListAsync();
         }
 
+        public async Task<Pump.Models.Pump> GetByIdAsync(int id)
+        {
+            return await _context.Pump.FindAsync(id);
+                
+        }
+
         public async Task UpdateAsync(Pump.Models.Pump pump)
         {
             _context.Pump.Update(pump);

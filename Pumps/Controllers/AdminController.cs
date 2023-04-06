@@ -6,40 +6,31 @@ namespace Pumps.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PumpController : ControllerBase
+    public class AdminController : ControllerBase
     {
         private IPumpRepository _pumpRepository;
 
-        public PumpController(IPumpRepository pumpRepository)
+        public AdminController(IPumpRepository pumpRepository)
         {
             _pumpRepository = pumpRepository;
         }
 
-        [HttpGet]
-        public async Task<List<Pump.Models.Pump>> Index()
+
+        [HttpGet("pump")]
+        public async Task<List<Pump.Models.Pump>> ListPumps()
         {
             return await _pumpRepository.GetAllAsync();
         }
 
-         [HttpGet("{id}")]
-        public async Task<Pump.Models.Pump> GetPump(int id)
-        {
-            return  await _pumpRepository.GetByIdAsync(id);
-        }
-        
 
-      /*  [HttpPost("api/[controller]/createPump")]
-        public async Task Post()
+        [HttpPost("Pump/create")]
+        public async Task CreatePump([FromForm] IFormCollection formData)
         {
             var pump = new Pump.Models.Pump
             {
 
             };
             await _pumpRepository.CrearAsync(pump);
-            
-
         }
-      */
-
     }
 }
