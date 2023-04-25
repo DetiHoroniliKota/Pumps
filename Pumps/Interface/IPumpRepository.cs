@@ -9,10 +9,13 @@ namespace Pumps.Interface
 
         Task<List<Pump.Models.Pump>> GetAllAsync();
 
+          
+
         Task UpdateAsync(Pump.Models.Pump pump);
 
         Task DelitedAsync(Pump.Models.Pump pump);
-
+        
+        Task<Pump.Models.Pump> GetPumpId(int id);
     }
 
 

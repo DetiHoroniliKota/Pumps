@@ -28,6 +28,11 @@ namespace Pumps.Repository
                 .ToListAsync();
         }
 
+        public async Task<Pump.Models.Pump> GetPumpId(int id)
+        {
+            return await _context.Pump.FindAsync(id);
+        }
+
         public async Task UpdateAsync(Pump.Models.Pump pump)
         {
             _context.Pump.Update(pump);
@@ -40,6 +45,6 @@ namespace Pumps.Repository
             await _context.SaveChangesAsync();
         }
 
-       
+        
     }
 }
