@@ -22,7 +22,7 @@ namespace Pumps.Controllers
         }
 
         [HttpGet("{Id}")]
-        public async Task<Pump.Models.Pump> GetPump(int id)
+        public async Task<Pump.Models.Pump> GetPump(string id)
         {
             return await _pumpRepository.GetPumpId(id);
         }

@@ -22,6 +22,6 @@ namespace Pumps.Data
         public DbSet<Pump.Models.Cap> Cap { get; set; } = default!;
         public DbSet<Pump.Models.UnderwaterСable> UnderwaterСable { get; set; } = default!;
         public DbSet<Pump.Models.Automation> Automation { get; set; } = default!;
-        public DbSet<Pump.Models.Equipment> Equipment { get; set; } = default!;
+        public DbSet<Pump.Models.Order> Equipment { get; set; } = default!;
     }
 }

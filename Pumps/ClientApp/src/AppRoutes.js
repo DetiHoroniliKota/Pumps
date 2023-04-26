@@ -2,6 +2,7 @@ import ApiAuthorzationRoutes from './components/api-authorization/ApiAuthorizati
 import { Counter } from "./components/Counter";
 import { FetchData } from "./components/FetchData";
 import { Home } from "./components/Home";
+import {CreateNewPump } from "./components/CreateNewPump"
 
 const AppRoutes = [
   {
@@ -9,9 +10,15 @@ const AppRoutes = [
     element: <Home />
   },
   {
-    path: '/counter',
-    element: <Counter />
+  path: '/counter',
+  element: <Counter />
+    },
+  {
+      path: '/create-new-pump',
+      element: <CreateNewPump/>
+
   },
+
   {
     path: '/fetch-data',
     requireAuth: true,

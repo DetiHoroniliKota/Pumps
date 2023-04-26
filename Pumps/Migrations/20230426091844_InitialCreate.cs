@@ -1,9 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
-using System;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Pumps.Data.Migrations
+#nullable disable
+
+namespace Pumps.Migrations
 {
-    public partial class CreateIdentitySchema : Migration
+    public partial class InitialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -47,6 +49,52 @@ namespace Pumps.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Automation",
+                columns: table => new
+                {
+                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    ArtivendorСode = table.Column<int>(type: "int", nullable: false),
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    Typ = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Automation", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Cap",
+                columns: table => new
+                {
+                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    ArtivendorСode = table.Column<int>(type: "int", nullable: false),
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    Typ = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Cap", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Clamp",
+                columns: table => new
+                {
+                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    ArtivendorСode = table.Column<int>(type: "int", nullable: false),
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Diameter = table.Column<int>(type: "int", nullable: false),
+                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    Typ = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Clamp", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "DeviceCodes",
                 columns: table => new
                 {
@@ -58,11 +106,28 @@ namespace Pumps.Data.Migrations
                     Description = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: true),
                     CreationTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Expiration = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Data = table.Column<string>(type: "nvarchar(max)", maxLength: 50790, nullable: false)
+                    Data = table.Column<string>(type: "nvarchar(max)", maxLength: 50000, nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_DeviceCodes", x => x.UserCode);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "HydraulicAccumulator",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ArtivendorСode = table.Column<int>(type: "int", nullable: false),
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Volume = table.Column<int>(type: "int", nullable: false),
+                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    Typ = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_HydraulicAccumulator", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -72,11 +137,11 @@ namespace Pumps.Data.Migrations
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Version = table.Column<int>(type: "int", nullable: false),
                     Created = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Use = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: true),
+                    Use = table.Column<string>(type: "nvarchar(450)", nullable: true),
                     Algorithm = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     IsX509Certificate = table.Column<bool>(type: "bit", nullable: false),
                     DataProtected = table.Column<bool>(type: "bit", nullable: false),
-                    Data = table.Column<string>(type: "nvarchar(max)", maxLength: 50790, nullable: false)
+                    Data = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -96,11 +161,74 @@ namespace Pumps.Data.Migrations
                     CreationTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Expiration = table.Column<DateTime>(type: "datetime2", nullable: true),
                     ConsumedTime = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    Data = table.Column<string>(type: "nvarchar(max)", maxLength: 50790, nullable: false)
+                    Data = table.Column<string>(type: "nvarchar(max)", maxLength: 50000, nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_PersistedGrants", x => x.Key);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Pipe",
+                columns: table => new
+                {
+                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    ArtivendorСode = table.Column<int>(type: "int", nullable: false),
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Diameter = table.Column<int>(type: "int", nullable: false),
+                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Pipe", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Pump",
+                columns: table => new
+                {
+                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    ArtivendorСode = table.Column<int>(type: "int", nullable: false),
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    H = table.Column<int>(type: "int", nullable: false),
+                    Q = table.Column<int>(type: "int", nullable: false),
+                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    Typ = table.Column<int>(type: "int", nullable: false),
+                    Picture = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Pump", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Rope",
+                columns: table => new
+                {
+                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    ArtivendorСode = table.Column<int>(type: "int", nullable: false),
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Diameter = table.Column<int>(type: "int", nullable: false),
+                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Rope", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "UnderwaterСable",
+                columns: table => new
+                {
+                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    ArtivendorСode = table.Column<int>(type: "int", nullable: false),
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Section = table.Column<double>(type: "float", nullable: false),
+                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UnderwaterСable", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -209,6 +337,69 @@ namespace Pumps.Data.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Equipment",
+                columns: table => new
+                {
+                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    AutomationId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    UnderwaterСableId = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    CapId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    PipeId = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    ClampId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    HydraulicAccumulatorId = table.Column<int>(type: "int", nullable: false),
+                    PumpId = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    RopeId = table.Column<string>(type: "nvarchar(450)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Equipment", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Equipment_Automation_AutomationId",
+                        column: x => x.AutomationId,
+                        principalTable: "Automation",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Equipment_Cap_CapId",
+                        column: x => x.CapId,
+                        principalTable: "Cap",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Equipment_Clamp_ClampId",
+                        column: x => x.ClampId,
+                        principalTable: "Clamp",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Equipment_HydraulicAccumulator_HydraulicAccumulatorId",
+                        column: x => x.HydraulicAccumulatorId,
+                        principalTable: "HydraulicAccumulator",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Equipment_Pipe_PipeId",
+                        column: x => x.PipeId,
+                        principalTable: "Pipe",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Equipment_Pump_PumpId",
+                        column: x => x.PumpId,
+                        principalTable: "Pump",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Equipment_Rope_RopeId",
+                        column: x => x.RopeId,
+                        principalTable: "Rope",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Equipment_UnderwaterСable_UnderwaterСableId",
+                        column: x => x.UnderwaterСableId,
+                        principalTable: "UnderwaterСable",
+                        principalColumn: "Id");
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -260,6 +451,46 @@ namespace Pumps.Data.Migrations
                 column: "Expiration");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Equipment_AutomationId",
+                table: "Equipment",
+                column: "AutomationId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Equipment_CapId",
+                table: "Equipment",
+                column: "CapId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Equipment_ClampId",
+                table: "Equipment",
+                column: "ClampId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Equipment_HydraulicAccumulatorId",
+                table: "Equipment",
+                column: "HydraulicAccumulatorId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Equipment_PipeId",
+                table: "Equipment",
+                column: "PipeId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Equipment_PumpId",
+                table: "Equipment",
+                column: "PumpId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Equipment_RopeId",
+                table: "Equipment",
+                column: "RopeId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Equipment_UnderwaterСableId",
+                table: "Equipment",
+                column: "UnderwaterСableId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Keys_Use",
                 table: "Keys",
                 column: "Use");
@@ -306,6 +537,9 @@ namespace Pumps.Data.Migrations
                 name: "DeviceCodes");
 
             migrationBuilder.DropTable(
+                name: "Equipment");
+
+            migrationBuilder.DropTable(
                 name: "Keys");
 
             migrationBuilder.DropTable(
@@ -316,6 +550,30 @@ namespace Pumps.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "Automation");
+
+            migrationBuilder.DropTable(
+                name: "Cap");
+
+            migrationBuilder.DropTable(
+                name: "Clamp");
+
+            migrationBuilder.DropTable(
+                name: "HydraulicAccumulator");
+
+            migrationBuilder.DropTable(
+                name: "Pipe");
+
+            migrationBuilder.DropTable(
+                name: "Pump");
+
+            migrationBuilder.DropTable(
+                name: "Rope");
+
+            migrationBuilder.DropTable(
+                name: "UnderwaterСable");
         }
     }
 }

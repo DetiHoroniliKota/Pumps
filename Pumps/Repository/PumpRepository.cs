@@ -28,7 +28,7 @@ namespace Pumps.Repository
                 .ToListAsync();
         }
 
-        public async Task<Pump.Models.Pump> GetPumpId(int id)
+        public async Task<Pump.Models.Pump> GetPumpId(string id)
         {
             return await _context.Pump.FindAsync(id);
         }

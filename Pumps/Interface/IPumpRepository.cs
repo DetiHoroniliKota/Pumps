@@ -15,7 +15,7 @@ namespace Pumps.Interface
 
         Task DelitedAsync(Pump.Models.Pump pump);
         
-        Task<Pump.Models.Pump> GetPumpId(int id);
+        Task<Pump.Models.Pump> GetPumpId(string id);
     }
 
 

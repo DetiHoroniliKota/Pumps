@@ -15,25 +15,25 @@ namespace Pumps.Repository
             _context = context;
         }
 
-        public async Task CrearAsync(Equipment device)
+        public async Task CrearAsync(Order device)
         {
             _context.Add(device);
             await _context.SaveChangesAsync();
         }
 
-        public async Task DelitedAsync(Equipment device)
+        public async Task DelitedAsync(Order device)
         {
             _context.Remove(device);
             await _context.SaveChangesAsync();
         }
 
-        public async Task<List<Equipment>> GetAllAsync()
+        public async Task<List<Order>> GetAllAsync()
         {
             return await _context.Equipment
                .ToListAsync();
         }
 
-        public async Task UpdateAsync(Equipment device)
+        public async Task UpdateAsync(Order device)
         {
             _context.Equipment.Update(device);
             await _context.SaveChangesAsync();

@@ -9,11 +9,11 @@ using Pumps.Data;
 
 #nullable disable
 
-namespace Pumps.Data.Migrations
+namespace Pumps.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230330091625_InitialModel")]
-    partial class InitialModel
+    [Migration("20230426091844_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -302,6 +302,253 @@ namespace Pumps.Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("Pump.Models.Automation", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("ArtivendorСode")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Typ")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Automation");
+                });
+
+            modelBuilder.Entity("Pump.Models.Cap", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("ArtivendorСode")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Typ")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Cap");
+                });
+
+            modelBuilder.Entity("Pump.Models.Clamp", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("ArtivendorСode")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Diameter")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Typ")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Clamp");
+                });
+
+            modelBuilder.Entity("Pump.Models.HydraulicAccumulator", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("ArtivendorСode")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Typ")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Volume")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("HydraulicAccumulator");
+                });
+
+            modelBuilder.Entity("Pump.Models.Order", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("AutomationId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("CapId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ClampId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("HydraulicAccumulatorId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("PipeId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("PumpId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("RopeId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("UnderwaterСableId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AutomationId");
+
+                    b.HasIndex("CapId");
+
+                    b.HasIndex("ClampId");
+
+                    b.HasIndex("HydraulicAccumulatorId");
+
+                    b.HasIndex("PipeId");
+
+                    b.HasIndex("PumpId");
+
+                    b.HasIndex("RopeId");
+
+                    b.HasIndex("UnderwaterСableId");
+
+                    b.ToTable("Equipment");
+                });
+
+            modelBuilder.Entity("Pump.Models.Pipe", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("ArtivendorСode")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Diameter")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Pipe");
+                });
+
+            modelBuilder.Entity("Pump.Models.Pump", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("ArtivendorСode")
+                        .HasColumnType("int");
+
+                    b.Property<int>("H")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Picture")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("Q")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Typ")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Pump");
+                });
+
+            modelBuilder.Entity("Pump.Models.Rope", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("ArtivendorСode")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Diameter")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Rope");
+                });
+
+            modelBuilder.Entity("Pump.Models.UnderwaterСable", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("ArtivendorСode")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<double>("Section")
+                        .HasColumnType("float");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("UnderwaterСable");
+                });
+
             modelBuilder.Entity("Pumps.Models.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")
@@ -367,258 +614,6 @@ namespace Pumps.Data.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
-            modelBuilder.Entity("WebPumpMVC.Models.Automation", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Typ")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Automation");
-                });
-
-            modelBuilder.Entity("WebPumpMVC.Models.Cap", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Typ")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Cap");
-                });
-
-            modelBuilder.Entity("WebPumpMVC.Models.Clamp", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int>("Diameter")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Typ")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Clamp");
-                });
-
-            modelBuilder.Entity("WebPumpMVC.Models.Equipment", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int>("AutomationId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("CapId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ClampId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("HydraulicAccumulatorId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("PipeId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("PumpId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("PumpsId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("RopeId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("UnderwaterСableId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AutomationId");
-
-                    b.HasIndex("CapId");
-
-                    b.HasIndex("ClampId");
-
-                    b.HasIndex("HydraulicAccumulatorId");
-
-                    b.HasIndex("PipeId");
-
-                    b.HasIndex("PumpId");
-
-                    b.HasIndex("RopeId");
-
-                    b.HasIndex("UnderwaterСableId");
-
-                    b.ToTable("Equipment");
-                });
-
-            modelBuilder.Entity("WebPumpMVC.Models.HydraulicAccumulator", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Typ")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Volume")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("HydraulicAccumulator");
-                });
-
-            modelBuilder.Entity("WebPumpMVC.Models.Pipe", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int>("Diameter")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Pipe");
-                });
-
-            modelBuilder.Entity("WebPumpMVC.Models.Pump", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int>("H")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Picture")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("Q")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("ReleaseDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasMaxLength(60)
-                        .HasColumnType("nvarchar(60)");
-
-                    b.Property<string>("Typ")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Pump");
-                });
-
-            modelBuilder.Entity("WebPumpMVC.Models.Rope", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int>("Diameter")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Rope");
-                });
-
-            modelBuilder.Entity("WebPumpMVC.Models.UnderwaterСable", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<double>("Section")
-                        .HasColumnType("float");
-
-                    b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("UnderwaterСable");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -670,55 +665,47 @@ namespace Pumps.Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("WebPumpMVC.Models.Equipment", b =>
+            modelBuilder.Entity("Pump.Models.Order", b =>
                 {
-                    b.HasOne("WebPumpMVC.Models.Automation", "Automation")
-                        .WithMany("Equipments")
+                    b.HasOne("Pump.Models.Automation", "Automation")
+                        .WithMany()
                         .HasForeignKey("AutomationId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("WebPumpMVC.Models.Cap", "Cap")
-                        .WithMany("Equipments")
+                    b.HasOne("Pump.Models.Cap", "Cap")
+                        .WithMany()
                         .HasForeignKey("CapId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("WebPumpMVC.Models.Clamp", "Clamp")
-                        .WithMany("Equipments")
+                    b.HasOne("Pump.Models.Clamp", "Clamp")
+                        .WithMany()
                         .HasForeignKey("ClampId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("WebPumpMVC.Models.HydraulicAccumulator", "HydraulicAccumulator")
-                        .WithMany("Equipments")
+                    b.HasOne("Pump.Models.HydraulicAccumulator", "HydraulicAccumulator")
+                        .WithMany()
                         .HasForeignKey("HydraulicAccumulatorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("WebPumpMVC.Models.Pipe", "Pipe")
-                        .WithMany("Equipments")
-                        .HasForeignKey("PipeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasOne("Pump.Models.Pipe", "Pipe")
+                        .WithMany()
+                        .HasForeignKey("PipeId");
 
-                    b.HasOne("WebPumpMVC.Models.Pump", "Pump")
-                        .WithMany("Equipments")
-                        .HasForeignKey("PumpId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasOne("Pump.Models.Pump", "Pump")
+                        .WithMany()
+                        .HasForeignKey("PumpId");
 
-                    b.HasOne("WebPumpMVC.Models.Rope", "Rope")
-                        .WithMany("Equipments")
-                        .HasForeignKey("RopeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasOne("Pump.Models.Rope", "Rope")
+                        .WithMany()
+                        .HasForeignKey("RopeId");
 
-                    b.HasOne("WebPumpMVC.Models.UnderwaterСable", "UnderwaterСable")
-                        .WithMany("Equipments")
-                        .HasForeignKey("UnderwaterСableId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasOne("Pump.Models.UnderwaterСable", "UnderwaterСable")
+                        .WithMany()
+                        .HasForeignKey("UnderwaterСableId");
 
                     b.Navigation("Automation");
 
@@ -735,46 +722,6 @@ namespace Pumps.Data.Migrations
                     b.Navigation("Rope");
 
                     b.Navigation("UnderwaterСable");
-                });
-
-            modelBuilder.Entity("WebPumpMVC.Models.Automation", b =>
-                {
-                    b.Navigation("Equipments");
-                });
-
-            modelBuilder.Entity("WebPumpMVC.Models.Cap", b =>
-                {
-                    b.Navigation("Equipments");
-                });
-
-            modelBuilder.Entity("WebPumpMVC.Models.Clamp", b =>
-                {
-                    b.Navigation("Equipments");
-                });
-
-            modelBuilder.Entity("WebPumpMVC.Models.HydraulicAccumulator", b =>
-                {
-                    b.Navigation("Equipments");
-                });
-
-            modelBuilder.Entity("WebPumpMVC.Models.Pipe", b =>
-                {
-                    b.Navigation("Equipments");
-                });
-
-            modelBuilder.Entity("WebPumpMVC.Models.Pump", b =>
-                {
-                    b.Navigation("Equipments");
-                });
-
-            modelBuilder.Entity("WebPumpMVC.Models.Rope", b =>
-                {
-                    b.Navigation("Equipments");
-                });
-
-            modelBuilder.Entity("WebPumpMVC.Models.UnderwaterСable", b =>
-                {
-                    b.Navigation("Equipments");
                 });
 #pragma warning restore 612, 618
         }

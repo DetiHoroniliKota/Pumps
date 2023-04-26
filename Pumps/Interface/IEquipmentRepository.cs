@@ -4,13 +4,13 @@ namespace Pumps.Interface
 {
     public interface IEquipmentRepository
     {
-        Task CrearAsync(Equipment device);
+        Task CrearAsync(Order device);
 
-        Task<List<Equipment>> GetAllAsync();
+        Task<List<Order>> GetAllAsync();
 
-        Task UpdateAsync(Equipment device);
+        Task UpdateAsync(Order device);
 
-        Task DelitedAsync(Equipment device);
+        Task DelitedAsync(Order device);
 
     }
 }
