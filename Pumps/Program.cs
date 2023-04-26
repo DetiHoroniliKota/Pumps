@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.EntityFrameworkCore;
 using Pumps.Data;
 using Pumps.Models;
+using Pumps.Interface;
+using Pumps.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +23,9 @@ builder.Services.AddIdentityServer()
 
 builder.Services.AddAuthentication()
     .AddIdentityServerJwt();
+
+builder.Services.AddTransient<IPumpRepository, PumpRepository>();
+builder.Services.AddTransient<IEquipmentRepository, EquipmentRepository>();
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
