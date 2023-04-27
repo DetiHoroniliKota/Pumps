@@ -38,6 +38,7 @@ export class NavMenu extends Component {
               {/*<LoginMenu>*/}
               {/*</LoginMenu>*/}
               <NavDropdown title="Admin">
+              <NavLink tag={Link} className="text-dark" to = "/new-component">New Component</NavLink>
               <NavLink tag={Link} className="text-dark" to="/create-new-pump">Create New Pump</NavLink>
               </NavDropdown>
             </ul>

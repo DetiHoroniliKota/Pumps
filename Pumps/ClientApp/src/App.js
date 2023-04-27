@@ -4,6 +4,7 @@ import AppRoutes from './AppRoutes';
 import AuthorizeRoute from './components/api-authorization/AuthorizeRoute';
 import { CreateNewPump } from './components/CreateNewPump';
 import { Layout } from './components/Layout';
+import  NewComponent  from './components/NewComponent';
 import './custom.css';
 
 export default class App extends Component {
@@ -13,7 +14,8 @@ export default class App extends Component {
     return (
       <Layout>
             <Routes>
-           <Route path='/create-new-pump' element={CreateNewPump} />
+           <Route path='/new-component' element={ <NewComponent/>}   />
+           <Route path='/create-new-pump' element={<CreateNewPump/>} />
           {AppRoutes.map((route, index) => {
             const { element, requireAuth, ...rest } = route;
             return <Route key={index} {...rest} element={requireAuth ? <AuthorizeRoute {...rest} element={element} /> : element} />;

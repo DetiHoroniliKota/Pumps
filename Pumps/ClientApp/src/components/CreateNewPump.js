@@ -14,21 +14,59 @@ export class CreateNewPump extends Component {
           
           <Form>
               <Form.Group className="mb-3" controlId="formBasicEmail">
-                  <Form.Label>Email address</Form.Label>
-                  <Form.Control type="email" placeholder="Enter email" />
+                  <Form.Label>Part number</Form.Label>
+                  <Form.Control type="number" placeholder="Enter Pump part number"/>
                   <Form.Text className="text-muted">
-                      We'll never share your email with anyone else.
+                      Enter pump part number
                   </Form.Text>
               </Form.Group>
 
-              <Form.Group className="mb-3" controlId="formBasicPassword">
-                  <Form.Label>Password</Form.Label>
-                  <Form.Control type="password" placeholder="Password" />
+              <Form.Group className="mb-3" controlId="formBasicEmail">
+                  <Form.Label>Model</Form.Label>
+                  <Form.Control type="text" placeholder="Enter pump Model" />
+                  <Form.Text className="text-muted">
+                      Enter pump model
+                  </Form.Text>
               </Form.Group>
-              <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                  <Form.Check type="checkbox" label="Check me out" />
+
+              <Form.Group className="mb-3" controlId="formBasicEmail">
+                  <Form.Label>pressure</Form.Label>
+                  <Form.Control type="number" placeholder="Enter pump pressure" />
+                  <Form.Text className="text-muted">
+                      Enter pump pressure
+                  </Form.Text>
               </Form.Group>
-              <Button variant="primary" type="submit">
+
+              <Form.Group className="mb-3" controlId="formBasicEmail">
+                  <Form.Label>Volume</Form.Label>
+                  <Form.Control type="number" placeholder="Enter pump volume" />
+                  <Form.Text className="text-muted">
+                      Enter pump volume
+                  </Form.Text>
+              </Form.Group>
+
+              <Form.Group className="mb-3" controlId="formBasicEmail">
+                  <Form.Label>Price</Form.Label>
+                  <Form.Control type="number" placeholder="Enter price" />
+                  <Form.Text className="text-muted">
+                      Enter price
+                  </Form.Text>
+              </Form.Group>
+
+              <Form.Label>Type</Form.Label>
+              <Form.Select aria-label="Select type">
+                  <option>Not selected</option>
+                  <option value="0">Downhole</option>
+                  <option value="1">Circulation</option>
+                  <option value="2">Drainage</option>
+              </Form.Select>
+
+              <Form.Group controlId="formFile" className="mt-5">
+                  <Form.Label>Load picture of a new pump</Form.Label>
+                  <Form.Control type="file" />
+              </Form.Group>
+              
+              <Button variant="primary" type="submit" className = "mt-5" >
                   Submit
               </Button>
           </Form>
