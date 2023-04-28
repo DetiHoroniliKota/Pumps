@@ -5,17 +5,63 @@ import Button from 'react-bootstrap/Button';
 export class CreateNewPump extends Component {
   static displayName = CreateNewPump.name;
 
-  /*constructor(props) {
-    super(props);
-    }*/
-  
+  constructor(props) {
+      super(props);
+      this.state = {
+          artivendorCode: '',
+          price: '',
+          selectedFile:null,
+          uploadResult: {
+              status: 'not uploaded'
+          }
+      }
+      this.onInputChange = this.onInputChange.bind(this);
+      this.handleSubmit = this.handleSubmit.bind(this);
+      /*this.uploadFile = this.uploadFile.bind(this);*/
+    }
+
+
+    onInputChange(event) {
+        this.setState({
+            [event.target.name]: event.target.value
+        });
+    }
+
+    handleSubmit(event) {
+        this.sendPumpData();
+    }
+        onUploadChange = event => {
+            this.SetState({
+                selectedFile: event.target.files[0],
+                selectedFileName: event.target.files[0].name
+            })
+        };
+
+
+
+    async uploadFile() {
+        const formData = new FotrmData();
+        formData.append('file', this.state.selectedFile);
+
+        const response = await fetch("pump/upload",
+            {
+                method: 'POST',
+                body: formData
+            });
+        const data = await response.json();
+
+        this.setState({
+         uploadResult: data
+        })
+    }
+
   render() {
       return (
           
-          <Form>
+          <Form onSubmit={this.handleSubmit}>
               <Form.Group className="mb-3" controlId="formBasicEmail">
                   <Form.Label>Part number</Form.Label>
-                  <Form.Control type="number" placeholder="Enter Pump part number"/>
+                  <Form.Control type="number" placeholder="Enter Pump part number" value={this.state.artivendorCode} name="artivendorCode" onChange={this.onInputChange} />
                   <Form.Text className="text-muted">
                       Enter pump part number
                   </Form.Text>
@@ -47,7 +93,7 @@ export class CreateNewPump extends Component {
 
               <Form.Group className="mb-3" controlId="formBasicEmail">
                   <Form.Label>Price</Form.Label>
-                  <Form.Control type="number" placeholder="Enter price" />
+                  <Form.Control type="number" placeholder="Enter price" value={this.state.price} name="price" onChange={this.onInputChange} />
                   <Form.Text className="text-muted">
                       Enter price
                   </Form.Text>
@@ -65,12 +111,40 @@ export class CreateNewPump extends Component {
                   <Form.Label>Load picture of a new pump</Form.Label>
                   <Form.Control type="file" />
               </Form.Group>
-              
+
+              <div className="mt-5 d-flex">
+                  <div className="custom-file w-50 mr-2">
+                      <Form.Control type="file" name="file" onChange={this.onUploadChange} className="custom-file-input" />
+                      <label className="custom-file-label" htmlFor="customFile"> {this.state.selectedFileName}</label>
+                  </div>
+                  <button type="button" className="btn btn-success" onClick={this.uploadFile}>Upload</button>
+              </div>
+              <p>Status: {this.state.uploadResult.status}</p>
+
               <Button variant="primary" type="submit" className = "mt-5" >
                   Submit
               </Button>
           </Form>
       
     );
-  }
+    }
+
+    async sendPumpData() {
+        const formData = new FormData();
+        formData.append("artivendorCode", this.state.artivendorCode);
+        //formData.append("title", this.state.title);
+        //formData.append("h", this.state.h);
+        //formData.append("q", this.state.q);
+        formData.append("price", this.state.price);
+        //formData.append("typ", this.state.typ);
+        //formData.append("filname", this.state.uploadResult.fileName);
+
+        const response = await fetch('api/admin/pump/create',
+            {
+                method: 'POST',
+                body: formData
+            });
+        const data = await response.json();
+        
+    }
 }
